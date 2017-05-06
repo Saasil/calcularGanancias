@@ -34,7 +34,7 @@
   <div ng-repeat="i in inputsBoleta track by $index">
     Nombre en boleta:
       <select ng-model="nombreVerduraBoleta[$index]">
-        <option id="upper" ng-repeat="item in nombreVerduraPago">{{item}}</option>
+        <option id="upper" ng-repeat="item in nombreVerduraPago track by $index">{{item}}</option>
       </select>
     Precio en boleta: <input type = "text" ng-model="precioBoleta[$index]"/>
     Cantidad:
