@@ -15,7 +15,10 @@ app.controller('textos', function($scope, $document){
     $scope.cantArt = [];
     $scope.multiplicacionBoleta;
     $scope.cantidades = new Array(10);
+<<<<<<< HEAD
     $scope.selected = "1";
+=======
+>>>>>>> 98c10a2aefba2cf8434d71bc282aff3c01682b28
   }
   $scope.inicio();
 
