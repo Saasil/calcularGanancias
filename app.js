@@ -3,13 +3,13 @@ var app = angular.module('agenda', []);
 app.controller('textos', function($scope, $document){
 
  $scope.inicio = function(){
-  $scope.cantidadArtPagos;
+  $scope.cantidadArtPagos = null;
   $scope.inputsPagos = [];
   $scope.inputsBoleta = [];
   $scope.resultado = [];
   $scope.precioPago = [];
   $scope.nombreVerduraPago = [];
-  $scope.cantArtBoleta;
+  $scope.cantArtBoleta = null;
   $scope.nombreVerduraBoleta = [];
   $scope.precioBoleta = [];
   $scope.cantArt = [];
@@ -40,7 +40,7 @@ app.controller('textos', function($scope, $document){
      for (y = 0; y < $scope.nombreVerduraPago.length ; y++){
 
        if ($scope.nombreVerduraBoleta[x] == $scope.nombreVerduraPago[y]){
-         
+
          $scope.multiplicacionBoleta = $scope.precioBoleta[x] * $scope.cantArt[x];
          $scope.multiplicacionPago = $scope.precioPago[y] * $scope.cantArt[x];
          //$scope.resultado[x] = $scope.precioBoleta[x] - $scope.precioPago[y];
