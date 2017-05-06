@@ -12,19 +12,22 @@ app.controller('textos', function($scope, $document){
   $scope.cantArtBoleta;
   $scope.nombreVerduraBoleta = [];
   $scope.precioBoleta = [];
+  $scope.cantArt = [];
+  $scope.multiplicacionBoleta;
+  $scope.filter = new Array(10);
   }
 
   $scope.loop = function (){
 
     for(x = 0  ; x < $scope.cantidadArtPagos ; x++){
-      $scope.inputsPagos[x] = "";
+      $scope.inputsPagos[x] = null;
     }
   };
 
   $scope.loopdos = function (){
 
     for(x = 0  ; x < $scope.cantArtBoleta ; x++){
-      $scope.inputsBoleta[x] = "";
+      $scope.inputsBoleta[x] = null;
     }
   };
 
@@ -38,7 +41,10 @@ app.controller('textos', function($scope, $document){
 
        if ($scope.nombreVerduraBoleta[x] == $scope.nombreVerduraPago[y]){
          alert("sorete");
-         $scope.resultado[x] = $scope.precioBoleta[x] - $scope.precioPago[y];
+         $scope.multiplicacionBoleta = $scope.precioBoleta[x] * $scope.cantArt[x];
+         $scope.multiplicacionPago = $scope.precioPago[y] * $scope.cantArt[x];
+         //$scope.resultado[x] = $scope.precioBoleta[x] - $scope.precioPago[y];
+         $scope.resultado[x] = $scope.multiplicacionBoleta - $scope.multiplicacionPago;
          $scope.total = $scope.total + $scope.resultado[x];
        }
      }

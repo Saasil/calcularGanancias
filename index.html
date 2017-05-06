@@ -39,6 +39,11 @@
   <div ng-repeat="i in inputsBoleta track by $index">
     Nombre en boleta: <input type = "text" ng-model = "nombreVerduraBoleta[$index]"/>
     Precio en boleta: <input type = "text" ng-model = "precioBoleta[$index]"/>
+    Cantidad:
+    <select name = "cantArt" ng-model = "cantArt[$index]">
+      <option ng-repeat = "x in filter track by $index"
+        value = "{{$index+1}}">{{$index+1}}</option>
+    </select>
   </div>
   <div><br></div>
   <input type = "button" ng-click="calcular()" value="Calcular">
