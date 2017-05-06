@@ -40,7 +40,7 @@ app.controller('textos', function($scope, $document){
      for (y = 0; y < $scope.nombreVerduraPago.length ; y++){
 
        if ($scope.nombreVerduraBoleta[x] == $scope.nombreVerduraPago[y]){
-         alert("sorete");
+         
          $scope.multiplicacionBoleta = $scope.precioBoleta[x] * $scope.cantArt[x];
          $scope.multiplicacionPago = $scope.precioPago[y] * $scope.cantArt[x];
          //$scope.resultado[x] = $scope.precioBoleta[x] - $scope.precioPago[y];

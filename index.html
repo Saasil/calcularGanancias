@@ -3,7 +3,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<style>
+#upper {text-transform: uppercase;}
+</style>
 <div ng-controller="textos" ng-init="inicio()">
 
   Cantidad de articulos: <input type = "text" ng-model = "cantidadArtPagos">
@@ -15,7 +17,7 @@
   <div><br></div>
 
   <div ng-repeat = "i in inputsPagos track by $index">
-    Nombre de articulo: <input type = "text" ng-model = "nombreVerduraPago[$index]"/>
+    Nombre de articulo: <input id = "upper" type = "text" ng-model = "nombreVerduraPago[$index]"/>
     Precio: <input type = "text" name = "preciopago"
     ng-model = "precioPago[$index]"/>
   </div>
@@ -37,7 +39,7 @@
   <div><br></div>
 
   <div ng-repeat="i in inputsBoleta track by $index">
-    Nombre en boleta: <input type = "text" ng-model = "nombreVerduraBoleta[$index]"/>
+    Nombre en boleta: <input id = "upper" type = "text" ng-model = "nombreVerduraBoleta[$index]"/>
     Precio en boleta: <input type = "text" ng-model = "precioBoleta[$index]"/>
     Cantidad:
     <select name = "cantArt" ng-model = "cantArt[$index]">
@@ -46,9 +48,10 @@
     </select>
   </div>
   <div><br></div>
-  <input type = "button" ng-click="calcular()" value="Calcular">
+  <input type = "button" ng-click="calcular()" value = "Calcular">
+  <div><br></div>
   <li ng-repeat = "i in inputsBoleta track by $index">
-    {{nombreVerduraBoleta[$index]}}-----{{resultado[$index]}}
+    Con {{nombreVerduraBoleta[$index] | uppercase}} obtuve: {{resultado[$index]}}
   </li>
   <div><br></div>
   <div>
