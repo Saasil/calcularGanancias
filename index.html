@@ -6,7 +6,7 @@
 <style>
 #upper {text-transform: uppercase;}
 </style>
-<div ng-controller="textos" ng-init="inicio()">
+<div ng-controller="textos">
 
   Cantidad de articulos: <input type = "text" ng-model = "cantidadArtPagos">
 
@@ -27,9 +27,9 @@
 <!--input type="button" ng-click="operacion()" value="Restar">
 <div>{{resultado}}</div-->
 
-  <!--li ng-repeat="i in inputs track by $index">
+  <!-- li ng-repeat="i in inputs track by $index">
     {{nombreverdura[$index]}} ------ {{preciopago[$index]}}
-  </li-->
+  </li> -->
 
   <div>
     Cantidad de articulos en boleta: <input type = "text" ng-model = "cantArtBoleta">
@@ -39,18 +39,23 @@
   <div><br></div>
 
   <div ng-repeat="i in inputsBoleta track by $index">
-    Nombre en boleta: <input id = "upper" type = "text" ng-model = "nombreVerduraBoleta[$index]"/>
-    Precio en boleta: <input type = "text" ng-model = "precioBoleta[$index]"/>
+    Nombre en boleta:
+      <select ng-model="nombreVerduraBoleta[$index]">
+        <option ng-repeat="item in nombreVerduraPago">{{item}}</option>
+      </select>
+      <!-- <input id = "upper" type = "text" ng-model = "nombreVerduraBoleta[$index]"/> -->
+
+    Precio en boleta: <input type = "text" ng-model="precioBoleta[$index]"/>
     Cantidad:
-    <select name = "cantArt" ng-model = "cantArt[$index]">
-      <option ng-repeat = "x in filter track by $index"
-        value = "{{$index+1}}">{{$index+1}}</option>
+    <select name="cantArt" ng-model="selected">
+      <option ng-repeat="x in [1,2,3,4,5,6,7,8,9,10]" value="{{x}}">{{x}}</option>
     </select>
+    ({{cantArt[$index]}})
   </div>
   <div><br></div>
-  <input type = "button" ng-click="calcular()" value = "Calcular">
+  <input type="button" ng-click="calcular()" value="Calcular">
   <div><br></div>
-  <li ng-repeat = "i in inputsBoleta track by $index">
+  <li ng-repeat="i in inputsBoleta track by $index">
     Con {{nombreVerduraBoleta[$index] | uppercase}} obtuve: {{resultado[$index]}}
   </li>
   <div><br></div>
